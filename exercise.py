@@ -102,7 +102,15 @@ check_voting_eligibility()
 
 def calculate_dog_years():
     # Your control flow logic goes here
-
+    dog_age = input("Input a dog's age: ")
+    try:
+        dog_age = int(dog_age)
+        if dog_age <= 2:
+            dog_years = dog_age * 10
+        else:
+            dog_years = 20 + (dog_age - 2) * 7
+    except ValueError:
+        print(f"The dog's age in dog years is {dog_years}.")
 
 # Call the function
 calculate_dog_years()
@@ -126,6 +134,10 @@ calculate_dog_years()
 
 def weather_advice():
     # Your control flow logic goes here
+    cold = input("Is it cold? (yes/no): ")
+    raining = input("Is it raining? (yes/no): ")
+    if cold.lower() == "yes" and raining.lower() == "yes":
+        print("Wear a waterproof coat.")
 
 # Call the function
 weather_advice()
@@ -152,6 +164,24 @@ weather_advice()
 
 def determine_season():
     # Your control flow logic goes here
+    month = input("Enter the month of the year (Jan - Dec): ")
+    day = input("Enter the day of the month: ")
+    try:
+        day = int(day)
+        if month.lower() in ["dec", "jan", "feb"]:
+            season = "Winter"
+        elif month.lower() in ["mar", "apr", "may"]:
+            season = "Spring"
+        elif month.lower() in ["jun", "jul", "aug"]:
+            season = "Summer"
+        elif month.lower() in ["sep", "oct", "nov"]:
+            season = "Fall"
+        else:
+            print("Invalid month. Please enter a valid month.")
+            return
+        print(f"{month} {day} is in {season}.")
+    except ValueError:
+        print("Invalid day. Please enter a valid day.")
 
 # Call the function
 determine_season()
